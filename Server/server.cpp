@@ -1,6 +1,14 @@
 // Chat Server
 #include "servernetwork.hpp"
 
+void runLoop(ServerNetwork& serverNetwork)
+{
+     while(true)
+     {
+          
+     }
+}
+
 int main(int argc, char *argv[])
 {
      ServerNetwork server_network(2525);
@@ -8,7 +16,8 @@ int main(int argc, char *argv[])
                               { server_network.ManagePackets(); });
      std::thread clientThread([&server_network]()
                               { server_network.ConnectClients(&server_network.client_array); });
-     clientThread.join();
-     packetThread.join();
+     runLoop(server_network);
+     clientThread.detach();
+     packetThread.detach();
      return 0;
 }
