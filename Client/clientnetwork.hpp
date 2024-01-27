@@ -18,4 +18,5 @@ public:
      void ReceivePackets(sf::TcpSocket *);
      void SendPacket(sf::Packet &);
      void Run();
+     void Terminate();
 };

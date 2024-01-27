@@ -63,3 +63,8 @@ void ClientNetwork::Run()
           }
      }
 }
+
+void ClientNetwork::Terminate()
+{
+     std::terminate();
+}
